@@ -21,9 +21,9 @@
 * [Stake](#stake-statistic)
 * [Total Supply](#total-supply-statistic)
 
-A CCS blockchain REST and web socket API service for [CcScore Node](https://github.com/ccsproject/ccscore-node).
+A CCS blockchain REST and web socket API service for [CcScore Node](https://github.com/saqarmax-arm/ccscore-node).
 
-This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/ccsproject/ccs-explorer.
+This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/saqarmax-arm/ccs-explorer.
 
 ## Getting Started
 
@@ -35,7 +35,7 @@ This is a backend-only service. If you're looking for the web frontend applicati
     ```  
 2. Install mongo https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/  
 
-3. Install ccs https://github.com/ccsproject/ccs - with bitcore and ZMQ ! 
+3. Install ccs https://github.com/saqarmax-arm/ccs - with bitcore and ZMQ ! 
 
     ```bash
     # with ZMQ
@@ -46,13 +46,13 @@ This is a backend-only service. If you're looking for the web frontend applicati
 4. Install ccscore-node  
 
     ```bash
-    npm i https://github.com/ccsproject/ccscore-node.git#master
+    npm i https://github.com/saqarmax-arm/ccscore-node.git#master
 
     $(npm bin)/ccscore-node create mynode
 
     cd mynode
 
-    $(npm bin)/ccscore-node install https://github.com/ccsproject/insight-api.git#master
+    $(npm bin)/ccscore-node install https://github.com/saqarmax-arm/insight-api.git#master
     ```  
 5. Edit ccscore-node.json  
 
@@ -132,7 +132,7 @@ This is a backend-only service. If you're looking for the web frontend applicati
 
 There add-on service available to extend the functionality of CcScore:
 
-- [CCS Explorer](https://github.com/ccsproject/ccs-explorer)
+- [CCS Explorer](https://github.com/saqarmax-arm/ccs-explorer)
 
 ## Prerequisites
 

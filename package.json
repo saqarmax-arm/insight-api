@@ -2,12 +2,12 @@
   "name": "ccs-insight-api",
   "description": "A CCS blockchain REST and web socket API service for CcScore Node.",
   "version": "0.0.26",
-  "repository": "https://github.com/ccsproject/insight-api.git",
+  "repository": "https://github.com/saqarmax-arm/insight-api.git",
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/ccsproject/insight-api/issues"
+    "url": "https://github.com/saqarmax-arm/insight-api/issues"
   },
-  "homepage": "https://github.com/ccsproject/insight-api",
+  "homepage": "https://github.com/saqarmax-arm/insight-api",
   "license": "MIT",
   "keywords": [
     "insight",
@@ -39,7 +39,7 @@
     "moment": "^2.19.3",
     "mongoose": "^4.11.8",
     "morgan": "^1.7.0",
-    "ccscore-lib": "https://github.com/ccsproject/ccscore-lib.git#master",
+    "ccscore-lib": "https://github.com/saqarmax-arm/ccscore-lib.git#master",
     "request": "^2.83.0",
     "web3": "^0.18.4"
   },
