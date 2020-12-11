@@ -21,9 +21,9 @@
 * [Stake](#stake-statistic)
 * [Total Supply](#total-supply-statistic)
 
-A QTUM blockchain REST and web socket API service for [Qtumcore Node](https://github.com/qtumproject/qtumcore-node).
+A CCS blockchain REST and web socket API service for [CcScore Node](https://github.com/ccsproject/ccscore-node).
 
-This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/qtumproject/qtum-explorer.
+This is a backend-only service. If you're looking for the web frontend application, take a look at https://github.com/ccsproject/ccs-explorer.
 
 ## Getting Started
 
@@ -35,7 +35,7 @@ This is a backend-only service. If you're looking for the web frontend applicati
     ```  
 2. Install mongo https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/  
 
-3. Install qtum https://github.com/qtumproject/qtum - with bitcore and ZMQ ! 
+3. Install ccs https://github.com/ccsproject/ccs - with bitcore and ZMQ ! 
 
     ```bash
     # with ZMQ
@@ -43,33 +43,33 @@ This is a backend-only service. If you're looking for the web frontend applicati
     # with bitcore
     ./configure --enable-bitcore
     ```  
-4. Install qtumcore-node  
+4. Install ccscore-node  
 
     ```bash
-    npm i https://github.com/qtumproject/qtumcore-node.git#master
+    npm i https://github.com/ccsproject/ccscore-node.git#master
 
-    $(npm bin)/qtumcore-node create mynode
+    $(npm bin)/ccscore-node create mynode
 
     cd mynode
 
-    $(npm bin)/qtumcore-node install https://github.com/qtumproject/insight-api.git#master
+    $(npm bin)/ccscore-node install https://github.com/ccsproject/insight-api.git#master
     ```  
-5. Edit qtumcore-node.json  
+5. Edit ccscore-node.json  
 
     ```json
     {
       "network": "livenet",
       "port": 3001,
       "services": [
-        "qtumd",
-        "qtum-insight-api",
+        "ccsd",
+        "ccs-insight-api",
         "web"
       ],
       "servicesConfig": {
-        "qtum-insight-api": {
+        "ccs-insight-api": {
           "enableApiLogs": true,
           "enableContractsApiLogs": true,
-          "routePrefix": "qtum-insight-api",
+          "routePrefix": "ccs-insight-api",
           "rateLimiterOptions": {
           "whitelist": [
              "123.456.12.34",
@@ -83,7 +83,7 @@ This is a backend-only service. If you're looking for the web frontend applicati
           "db": {
             "host": "127.0.0.1",
             "port": "27017",
-            "database": "qtum-api-livenet",
+            "database": "ccs-api-livenet",
             "user": "",
             "password": ""
           },
@@ -91,16 +91,16 @@ This is a backend-only service. If you're looking for the web frontend applicati
             "updateFromBlockHeight": 0
           }
         },
-        "qtumd": {
+        "ccsd": {
           "spawn": {
-        	  "datadir": "/home/user/.qtum",
-            "exec": "/home/user/qtum-bitcore/src/qtumd"
+        	  "datadir": "/home/user/.ccs",
+            "exec": "/home/user/ccs-bitcore/src/ccsd"
           }
         }
       }
     }
     ```  
-6. Edit qtum.conf  
+6. Edit ccs.conf  
 
     ```
     server=1
@@ -123,28 +123,28 @@ This is a backend-only service. If you're looking for the web frontend applicati
 7. Run Node  
 
     ```
-    $(npm bin)/qtumcore-node start
+    $(npm bin)/ccscore-node start
     ```  
 
-8. The API endpoints will be available by default at: `http://localhost:3001/qtum-insight-api/`  
+8. The API endpoints will be available by default at: `http://localhost:3001/ccs-insight-api/`  
 
 ## Add-on Services
 
-There add-on service available to extend the functionality of Qtumcore:
+There add-on service available to extend the functionality of CcScore:
 
-- [QTUM Explorer](https://github.com/qtumproject/qtum-explorer)
+- [CCS Explorer](https://github.com/ccsproject/ccs-explorer)
 
 ## Prerequisites
 
-**Note:** You can use an existing QTUM data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `qtum.conf`, as well as a few other additional fields.
+**Note:** You can use an existing CCS data directory, however `txindex`, `addressindex`, `timestampindex` and `spentindex` needs to be set to true in `ccs.conf`, as well as a few other additional fields.
 
 
 ## Query Rate Limit
 
-To protect the server, qtum-insight-api has a built it query rate limiter. It can be configurable in `qtumcore-node.json` with:
+To protect the server, ccs-insight-api has a built it query rate limiter. It can be configurable in `ccscore-node.json` with:
 ``` json
   "servicesConfig": {
-    "qtum-insight-api": {
+    "ccs-insight-api": {
       "rateLimiterOptions": {
         "whitelist": ["::ffff:127.0.0.1"]
       }
@@ -155,17 +155,17 @@ To protect the server, qtum-insight-api has a built it query rate limiter. It ca
 Or disabled entirely with:
 ``` json
   "servicesConfig": {
-    "qtum-insight-api": {
+    "ccs-insight-api": {
       "disableRateLimiter": true
     }
   }
   ```
   
-**Note:** `routePrefix` can be configurable in `qtumcore-node.json` with:
+**Note:** `routePrefix` can be configurable in `ccscore-node.json` with:
 
 ``` json
   "servicesConfig": {
-    "qtum-insight-api": {
+    "ccs-insight-api": {
       "routePrefix": "insight-api",
     }
   }
@@ -173,11 +173,11 @@ Or disabled entirely with:
   
 ## Enable / Disable logs
 
- To reduce the load on the server, qtum-insight-api has opportunity to enable / disable logs.
- Both `enableApiLogs` and `enableContractsApiLogs` can be configured in `qtumcore-node.json` with:
+ To reduce the load on the server, ccs-insight-api has opportunity to enable / disable logs.
+ Both `enableApiLogs` and `enableContractsApiLogs` can be configured in `ccscore-node.json` with:
 ``` json
   "servicesConfig": {
-    "qtum-insight-api": {
+    "ccs-insight-api": {
       "enableApiLogs": true,
       "enableContractsApiLogs": false
     }
@@ -188,7 +188,7 @@ Or disabled entirely with:
 
 ``` json
   "servicesConfig": {
-    "qtum-insight-api": {
+    "ccs-insight-api": {
        "enableApiLogs": false,
        "enableContractsApiLogs": true
     }
@@ -725,7 +725,7 @@ POST response:
   /insight-api/peer
 ```
 
-### Status of the QTUM Network
+### Status of the CCS Network
 ```
   /insight-api/status?q=xxx
 ```
